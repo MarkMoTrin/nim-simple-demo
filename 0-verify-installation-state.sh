@@ -27,3 +27,29 @@ else
     exit 1
 fi
 
+
+
+
+
+# ---------------------------------------------------
+# Check if NGC is installed
+# ---------------------------------------------------
+
+# Capture the output of the command
+output=$(ngc user who 2>&1)
+
+# Check if the output contains any data
+if [[ -z "$output" ]]; then
+    echo "The command returned empty output."
+elif echo "$output" | grep -q "User Id"----
+
+# Capture "The output contains user information whihc means NGC is setup correctly."
+c user who 2>&1)
+
+# Check if the output contains any data
+if [[ -z "$output" ]]; then
+    echo "The command returned empty output."
+elif echo "$output" | grep -q "User Id"; then
+    echo "The output contains user information whihc means NGC is setup correctly."
+else
+    echo e co command ran, but no user information was found inforNGC authentication is not set up correctly."fi
