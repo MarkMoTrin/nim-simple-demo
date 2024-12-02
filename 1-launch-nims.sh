@@ -22,7 +22,7 @@ fi
 # ---------------------------------------------------------------------------------
 # CHANGE Parameters ==== 
 # ---------------------------------------------------------------------------------
-PARAMS_DEBUG_FLAG=1                       # Set to 1 to double check the parameters, no NIM will be launched
+PARAMS_DEBUG_FLAG=0                       # Set to 1 to double check the parameters, no NIM will be launched, set to 0 to launch NIM
 SPECIFIC_GPU=1                            # Set to the GPU number you see from nvidia-smi otherwise use all. -1 uses all GPUs
 CONTAINER_NAME=Llama3-1-8B-Instruct       # Name of the docker container running NIM
 Repository=nim/meta/llama-3.1-8b-instruct # Use repository from querying models on NGC
@@ -57,7 +57,7 @@ echo "The name of the model to use in the API is $NIM_SERVED_MODEL_NAME"
 if [ "$PARAMS_DEBUG_FLAG" -eq 0 ]; then
     echo -e "Debugging is disabled and NIM will be launched.\n"
 
-    if [ "$SPECIFIC_GPU" -eq -1 ]; then
+    if [ "$SPECIFIC_GPU" -eq -1 ]; then # RUN ON ALL GPUS. Only use when doing large models.
         echo -e "Running on all GPUs\n"
 
       # Start the LLM NIM. Running on DEVICE=1

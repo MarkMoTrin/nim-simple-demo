@@ -14,7 +14,7 @@ echo -e "Current models loaded as NIMs\n"
 curl -X GET 'http://0.0.0.0:8000/v1/models'
 
 # Sending simple message with the custom_name_1
-echo -e "\n\n Simple message to llama 3.1\ with custom_name_1 \n"
+echo -e "\n\n>>>> Simple message to llama 3.1\ with custom_name_1 \n"
 
 curl -X 'POST' \
     'http://0.0.0.0:8000/v1/completions' \
@@ -28,7 +28,7 @@ curl -X 'POST' \
 
 
 # Using the prompt template
-echo -e "\nSimple message using system prompt template\n"
+echo -e "\n\n>>>> Simple message using system prompt template\n"
 
 curl -X 'POST' \
 'http://0.0.0.0:8000/v1/chat/completions' \
@@ -56,30 +56,3 @@ curl -X 'POST' \
 
 
 
-# Sending simple message with the custom_name_2 (Testing)
-echo -e "\n\nSimple message to llama 3.1\ with custom_name_2 \n"
-
-curl -X 'POST' \
-    'http://0.0.0.0:8000/v1/completions' \
-    -H 'accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -d '{
-"model": "custom_name_2",
-"prompt": "Once upon a time",
-"max_tokens": 64
-}'
-
-
-# Sending simple message with the default name if custom
-# names were not specificied.
-echo -e "Simple message to llama 3.1-8b\n"
-
-curl -X 'POST' \
-    'http://0.0.0.0:8000/v1/completions' \
-    -H 'accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -d '{
-"model": "meta/llama-3.1-8b-instruct",
-"prompt": "Once upon a time",
-"max_tokens": 64
-}'
