@@ -1,0 +1,16 @@
+Current models loaded as NIMs
+
+{"object":"list","data":[{"id":"custom_name_1","object":"model","created":1733169897,"owned_by":"system","root":"custom_name_1","parent":null,"max_model_len":131072,"permission":[{"id":"modelperm-fc0643b354044dccbe85468b9f2c432a","object":"model_permission","created":1733169897,"allow_create_engine":false,"allow_sampling":true,"allow_logprobs":true,"allow_search_indices":false,"allow_view":true,"allow_fine_tuning":false,"organization":"*","group":null,"is_blocking":false}]}]}
+
+ Simple message to llama 3.1\ with custom_name_1 
+
+{"id":"cmpl-6d5a527556e84e6e8e4140becbbd520e","object":"text_completion","created":1733169897,"model":"custom_name_1","choices":[{"index":0,"text":", in a small village nestled in the rolling hills of Tuscany, there lived a young shepherd named Pietro. Pietro was known throughout the village for his exceptional love and care for his sheep, and for the wool he harvested from them. His sheep were the finest in the land, with coats as white as","logprobs":null,"finish_reason":"length","stop_reason":null,"prompt_logprobs":null}],"usage":{"prompt_tokens":5,"total_tokens":69,"completion_tokens":64}}
+Simple message using system prompt template
+
+{"id":"chat-d1b7e93d56fe44d3b6f8c80fc13667c0","object":"chat.completion","created":1733169899,"model":"custom_name_1","choices":[{"index":0,"message":{"role":"assistant","content":"The Los Angeles Dodgers won the 2020 World Series, defeating the Tampa Bay Rays in six games (4-2). It was the Dodgers' first World Series title since 1988."},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":31,"total_tokens":70,"completion_tokens":39},"prompt_logprobs":null}
+
+Simple message to llama 3.1\ with custom_name_2 
+
+{"object":"error","message":"The model `custom_name_2` does not exist.","type":"NotFoundError","param":null,"code":404}Simple message to llama 3.1-8b
+
+{"object":"error","message":"The model `meta/llama-3.1-8b-instruct` does not exist.","type":"NotFoundError","param":null,"code":404}
