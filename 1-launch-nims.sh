@@ -25,19 +25,38 @@ export CONTAINER_NAME=Llama3-1-8B-Instruct
 # CHANGE ==== The container name from the previous ngc registgry image list command
 Repository=nim/meta/llama-3.1-8b-instruct
 Latest_Tag=1.3
+NIM_SERVED_MODEL_NAME='["custom_name_1","custom_name_2"]' # CHANGE ==== Choose a model name to serve
 
 # Choose a LLM NIM Image from NGC
 export IMG_NAME="nvcr.io/${Repository}:${Latest_Tag}"
 
-# Choose a path on your system to cache the downloaded models
+# CHANGE ==== Choose a path on your system to cache the downloaded models
 export LOCAL_NIM_CACHE=~/.cache/nim
 mkdir -p "$LOCAL_NIM_CACHE"
+
+# Look up the model-profiles (optimized engines) for the model you are interested in deploying
+docker run --rm --gpus='"device=1"' -e NGC_API_KEY=$NGC_API_KEY $IMG_NAME list-model-profiles > ./outputs/model_profiles.txt
+
+# List all the models available and output as a csv
+ngc registry image list --format_type csv nvcr.io/nim/* > ./outputs/ngc_registry_image_list.csv
 
 echo "Parameter Checklist ----------------------"
 echo "The container name is $LOCAL_NIM_CACHE"
 echo "The image name is $IMG_NAME"
 echo "The container name is $CONTAINER_NAME"
-# echo "The NGC Key is $NGC_API_KEY"
+
+
+# # Start the LLM NIM. Running on DEVICE=1
+# docker run -it --rm --name=$CONTAINER_NAME \
+#   --runtime=nvidia \
+#   --gpus '"device=1"' \
+#   --shm-size=16GB \
+#   -e NGC_API_KEY=$NGC_API_KEY \
+#   -v "$LOCAL_NIM_CACHE:/opt/nim/.cache" \
+#   -u $(id -u) \
+#   -p 8000:8000 \
+#   $IMG_NAME
+
 
 # Start the LLM NIM. Running on DEVICE=1
 docker run -it --rm --name=$CONTAINER_NAME \
@@ -46,10 +65,11 @@ docker run -it --rm --name=$CONTAINER_NAME \
   --shm-size=16GB \
   -e NGC_API_KEY=$NGC_API_KEY \
   -v "$LOCAL_NIM_CACHE:/opt/nim/.cache" \
-  -e NIM_SERVED_MODEL_NAME=mark_test, mark_test_2
+  -e NIM_SERVED_MODEL_NAME="custom_name_1,custom_name_2" \
   -u $(id -u) \
   -p 8000:8000 \
   $IMG_NAME
+
 
 
 # ----------------------------------------------------
