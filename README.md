@@ -1,7 +1,7 @@
 # NVIDIA LLM NIM Demo and Documentation Walkthrough  
 This repo shows code to get started using NVIDIA LLM NIM, understand how NIM works when you deploy, and how to navigate the [LLM NIM Documentation](https://docs.nvidia.com/nim/large-language-models/latest/introduction.html).
 
-Watch the [video](https://www.loom.com/share/b74a97428c8643aeaf18710fa2a1c1a6?sid=983d0ec4-1b58-49a6-a527-5549c0627ee7) before getting started as it will help you to dive deeper much faster.
+> Watch the [video](https://www.loom.com/share/b74a97428c8643aeaf18710fa2a1c1a6?sid=983d0ec4-1b58-49a6-a527-5549c0627ee7) before getting started as it will help you to dive deeper much faster.
 
 Chapters:
 - 0:00 Introduction to LLM NIM Documentation
@@ -27,3 +27,5 @@ Once you get your NGC_API_KEY, pull the repo, create a `.env` file (just a file 
 - 0-verify-installation-state.sh - hosts code to check installation of CUDA, Docker, NVIDIA Docker (using GPUs in a container) and NGC (NVIDIA GPU Cloud) where all the containers reside.
 - 1-launch-nims.sh - hosts code to read in your NGC_API_KEY, specify the NIM model to deploy, configure the NIM, see which models work on your machine, query all available models on NGC, launch the NIM
 - 2-query-nim.sh - hosts example curl requests from the documentation showing how to specify custom model names 
+
+Reach out to **Mark Moyou (mmoyou@nvidia.com)** with any questions
