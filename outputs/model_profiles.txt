@@ -21,7 +21,7 @@ SYSTEM INFO
   -  [26b1:10de] (0) NVIDIA RTX 6000 Ada Generation (RTX A6000 Ada) [current utilization: 0%]
   -  [26b1:10de] (1) NVIDIA RTX 6000 Ada Generation (RTX A6000 Ada) [current utilization: 0%]
 - Non-free GPUs:
-  -  [1d01:10de] (2) NVIDIA GeForce GT 1030 [current utilization: 18%]
+  -  [1d01:10de] (2) NVIDIA GeForce GT 1030 [current utilization: 19%]
 MODEL PROFILES
 - Compatible with system and runnable:
   - 395082aa40085d35f004dd3056d7583aea330417ed509b4315099a66cfc72bdd (vllm-bf16-tp2)

@@ -22,7 +22,7 @@ fi
 # ---------------------------------------------------------------------------------
 # CHANGE Parameters ==== 
 # ---------------------------------------------------------------------------------
-PARAMS_DEBUG_FLAG=1                       # Set to 1 to double check the parameters, no NIM will be launched, set to 0 to launch NIM
+PARAMS_DEBUG_FLAG=0                       # Set to 1 to double check the parameters, no NIM will be launched, set to 0 to launch NIM
 SPECIFIC_GPU=1                            # Set to the GPU number you see from nvidia-smi otherwise use all. -1 uses all GPUs
 CONTAINER_NAME=Llama3-1-8B-Instruct       # Name of the docker container running NIM
 Repository=nim/meta/llama-3.1-8b-instruct # Use repository from querying models on NGC
