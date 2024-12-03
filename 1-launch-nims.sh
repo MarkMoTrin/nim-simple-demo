@@ -22,7 +22,7 @@ fi
 # ---------------------------------------------------------------------------------
 # CHANGE Parameters ==== 
 # ---------------------------------------------------------------------------------
-PARAMS_DEBUG_FLAG=0                       # Set to 1 to double check the parameters, no NIM will be launched, set to 0 to launch NIM
+PARAMS_DEBUG_FLAG=1                       # Set to 1 to double check the parameters, no NIM will be launched, set to 0 to launch NIM
 SPECIFIC_GPU=1                            # Set to the GPU number you see from nvidia-smi otherwise use all. -1 uses all GPUs
 CONTAINER_NAME=Llama3-1-8B-Instruct       # Name of the docker container running NIM
 Repository=nim/meta/llama-3.1-8b-instruct # Use repository from querying models on NGC
@@ -43,7 +43,7 @@ export SPECIFIC_GPU
 mkdir -p "$LOCAL_NIM_CACHE" 
 
 # Look up the model-profiles (optimized engines) for the model you are interested in deploying
-docker run --rm -e NGC_API_KEY=$NGC_API_KEY $IMG_NAME list-model-profiles > $MODEL_PROFILE_QUERY_OUTPUT
+docker run --rm --gpus all -e NGC_API_KEY=$NGC_API_KEY $IMG_NAME list-model-profiles > $MODEL_PROFILE_QUERY_OUTPUT
 
 # List all the models available and output as a csv
 ngc registry image list --format_type csv nvcr.io/nim/* > $MODELS_AVAILABLE_CSV
